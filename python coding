@@ -1,0 +1,75 @@
+import random
+
+supported_locations = {
+    "Japan": ["Tokyo", "Kyoto", "Osaka"],
+    "France": ["Paris", "Nice", "Lyon"],
+    "USA": ["New York", "Los Angeles", "Chicago"],
+    "Italy": ["Rome", "Venice", "Florence"],
+    "India": ["Delhi", "Mumbai", "Bangalore"],
+    "Germany": ["Berlin", "Munich", "Hamburg"],
+    "Spain": ["Madrid", "Barcelona", "Seville"],
+    "Thailand": ["Bangkok", "Phuket", "Chiang Mai"],
+}
+
+def generate_itinerary(country, city):
+    if country not in supported_locations:
+        return "Sorry, that country is not supported."
+    if city not in supported_locations[country]:
+        return f"Sorry, {city} is not a supported city in {country}."
+
+    if country == "France" and city == "Paris":
+        itinerary = f"Your Paris itinerary includes:\n- Visit the Louvre Museum\n- Explore the Eiffel Tower\n- Enjoy French cuisine at a local bistro\n- Stroll along the Seine River\n- Visit Notre-Dame Cathedral"
+    elif country == "Japan" and city == "Tokyo":
+        itinerary = f"Your Tokyo itinerary includes:\n- Visit the Senso-ji Temple\n- Explore the Shibuya district\n- Enjoy sushi at Tsukiji Fish Market\n- Visit the Meiji Shrine\n- Experience the Tokyo Skytree"
+    elif country == "USA" and city == "New York":
+        itinerary = f"Your New York itinerary includes:\n- Visit the Statue of Liberty\n- Explore Central Park\n- See a Broadway show\n- Visit the Metropolitan Museum of Art\n- Walk across the Brooklyn Bridge"
+    elif country == "Italy" and city == "Rome":
+        itinerary = f"Your Rome itinerary includes:\n- Visit the Colosseum\n- Explore Vatican City\n- Throw a coin in the Trevi Fountain\n- Visit the Pantheon\n- Enjoy pasta at a local trattoria"
+    elif country == "India" and city == "Delhi":
+        itinerary = f"Your Delhi itinerary includes:\n- Visit the Red Fort\n- Explore Qutub Minar\n- Visit Humayun's Tomb\n- Experience Chandni Chowk\n- Visit the Lotus Temple"
+    elif country == "Germany" and city == "Berlin":
+        itinerary = f"Your Berlin itinerary includes:\n- Visit the Brandenburg Gate\n- Explore the Reichstag Building\n- Visit the Berlin Wall Memorial\n- Visit Museum Island\n- Enjoy a currywurst"
+    elif country == "Spain" and city == "Madrid":
+        itinerary = f"Your Madrid itinerary includes:\n- Visit the Royal Palace of Madrid\n- Explore the Prado Museum\n- Relax in Retiro Park\n- Enjoy tapas at a local bar\n- Watch a flamenco show"
+    elif country == "Thailand" and city == "Bangkok":
+        itinerary = f"Your Bangkok itinerary includes:\n- Visit the Grand Palace\n- Explore Wat Arun\n- Visit Wat Pho\n- Experience a floating market\n- Enjoy Thai street food"
+    else:
+        itinerary = f"Your {city}, {country} itinerary includes:\n"
+        itinerary += "- " + "\n- ".join([f"Explore a local attraction" for _ in range(5)])
+
+    return itinerary
+
+def main():
+    print("Welcome to the Travel Itinerary Generator!")
+    while True:
+        country = input("Enter the country you want to visit (or 'exit' to quit): ").strip().title()
+        if country.lower() == 'exit':
+            break
+        if country not in supported_locations:
+            print("Sorry, that country is not supported.")
+            continue
+        city = input(f"Enter the city in {country} you want to visit: ").strip().title()
+        itinerary = generate_itinerary(country, city)
+        print("\n" + itinerary + "\n")
+
+if __name__ == "__main__":
+    main()
+
+
+#Output
+Welcome to the Travel Itinerary Generator!
+
+Your Delhi itinerary includes:
+- Visit the Red Fort
+- Explore Qutub Minar
+- Visit Humayun's Tomb
+- Experience Chandni Chowk
+- Visit the Lotus Temple
+
+
+Your Tokyo itinerary includes:
+- Visit the Senso-ji Temple
+- Explore the Shibuya district
+- Enjoy sushi at Tsukiji Fish Market
+- Visit the Meiji Shrine
+- Experience the Tokyo Skytree
